@@ -21,6 +21,7 @@ button{
     border-radius: 3px;
     color: antiquewhite;
     font-size: 19px;
+    cursor: pointer;
 }
 .icons{
     width: 60%;
@@ -37,8 +38,10 @@ ul{
 }
 .add-post{
     width: 60%;
+    height: 120px;
     background: rgb(214, 182, 182);
     margin: auto;
+    border-radius: 3px;
 }
 .cirles-profile{
     display: flex;
@@ -64,7 +67,126 @@ ul{
 } */
 .buttons button{
     width: 85%;
-    height: 30px;
+    padding: 2px;
+    /* height: 25px; */
     margin-left: 40px;
+    margin-top: -5px;
 
+}
+.buttons button a{
+    color: aliceblue;
+    font-size: 15px;
+}
+
+
+
+
+
+/* post */
+
+.post{
+    display: flex;
+    justify-content: space-between;
+}
+.post_container{
+    width: 40%;
+    height: 300px;
+    margin: auto;
+    border-radius: 18px;
+}
+.post{
+    margin-top: 30px;
+    border-bottom: 1px solid gray;
+}
+.post button{
+    width: 20%;
+    height: 40px;
+    background: rgb(48, 35, 219);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.logo-profile{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+/* .logo-profile img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 20px;
+} */
+.circle-profile-name{
+    display: flex;
+    align-items: center;
+}
+.circle-profile-name img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.circle-profile-name h3{
+    margin-left: 8px;
+}
+.content input{
+    margin-top: 40px;
+    font-weight: bold;
+    width: 100%;
+    padding: 4px;
+    /* outline: none */
+}
+.content input:hover{
+    border-bottom: 1px solid blue;
+}
+
+
+.upload-img{
+    margin-top: 19px;
+    width: 100%;
+    height: 190px;
+    background: rgb(216, 162, 162);
+    border-radius: 3px;
+}
+
+.show-post{
+    height: 490px;
+}
+.content-post{
+    margin: 10px;
+}
+.photo-post{
+    width: 95%;
+    height: 224px;
+    margin: auto;
+    border-radius: 3px;
+    background: rgb(129, 117, 117);
+}
+.cirles-profile p{
+    margin-top: 25px;
+    font-weight: bold;
+}
+.content input:hover{
+    border-bottom: 1px solid blue;
+}
+
+
+
+
+.like-comment{
+    width: 95%;
+    border-radius: 3px;
+    padding: 6px;
+    margin-top: 30px;
+    margin-left: 10px;
+    background: #eee;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.like a i{
+
+    color: rgb(25, 11, 235);
 }
