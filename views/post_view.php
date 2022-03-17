@@ -1,6 +1,5 @@
 
 <?php require_once('../templates/header.php')?>
-
 <div class="post_container">
 <form action="../controllers/post_controller.php" method="post" enctype="multipart/form-data">
        <div class=" post">
@@ -13,7 +12,7 @@
                <h3>Savouert cute girl</h3>
            </div>
            <div class="content">
-               <input type="text" name="content" placeholder="Say something about this photo ...">
+               <input type="text" name="content" placeholder="Say something about this photo ..." >
            </div>
        </div>
        <div class="upload-img">

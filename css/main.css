@@ -153,6 +153,7 @@ ul{
 
 .show-post{
     height: 490px;
+    margin-top: 15px;
 }
 .content-post{
     margin: 10px;
@@ -189,4 +190,13 @@ ul{
 .like a i{
 
     color: rgb(25, 11, 235);
+}
+
+.delete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.delete_edit{
+    margin:  25px;
 }

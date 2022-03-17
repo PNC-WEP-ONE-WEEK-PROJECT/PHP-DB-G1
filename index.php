@@ -1,19 +1,15 @@
-<?php
-/**
- *
- * Your code here
- * 
- * User for Add post and display post btn(add,post)   click add call post_view.php
- *
- */
-// require_once('views/post_view.php')
-// ?>
 
 <?php
-require_once("templates/header.php")
- ?>
- 
- <div class="container">
+require_once("templates/header.php");
+require_once('models/database.php');
+$posts = getItems();
+foreach ($posts as $post) {
+};
+?>
+
+<div class="container">
+    <form action="#" method="post">
+
         <!-- Your code here -->
         <div class="navigation">
             <h2>Facebook</h2>
@@ -37,32 +33,39 @@ require_once("templates/header.php")
                 <button><a href="views/post_view.php">Add</a></button>
             </div>
         </div>
-        <form action="controllers/post_controller.php">
-            <div class="add-post show-post">
+    </form>
+    <form action="controllers/post_controller.php">
+        <div class="add-post show-post ">
+            <div class="delete">
+
                 <div class="cirles-profile">
                     <div class="profile">
                         <img src="images/rady.jpg" alt="">
                     </div>
                     <p>Savouert</p>
                 </div>
-                <div class="content-post">
-                    <p></p>
-                </div>
-                <div class="photo-post">
-                    <!-- <input type="file" name="image" value="upload image"> -->
 
-                </div>
-                <div class="like-comment">
-                    <div class="like">
-                        <a href="#"><i class="fa fa-thumbs-o-up "></i>Like</a>
-                    </div>
-                    <div class="comment">
-                        <a href="#"><i class="fa fa-comment-o"></i>Comment</a>
-                    </div>
+                <div class="delete_edit">
+                    <a href=""><i class="fa fa-pencil"></i></a>
+                    <a href="controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
                 </div>
             </div>
-        </form>
-    </div>
+            <div class="content-post">
+                <p> <?= $post['content_post'] ?></p>
+            </div>
+            <div class="photo-post">
+            </div>
+            <div class="like-comment">
+                <div class="like">
+                    <a href="#"><i class="fa fa-thumbs-o-up "></i>Like</a>
+                </div>
+                <div class="comment">
+                    <a href="#"><i class="fa fa-comment-o"></i>Comment</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 <?php
 require_once("templates/footer.php")
- ?>
+?>
