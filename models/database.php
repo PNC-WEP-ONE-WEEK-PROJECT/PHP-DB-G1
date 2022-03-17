@@ -1,7 +1,6 @@
 <?php
 $db=new PDO("mysql:host=localhost;dbname=facebooks_db","root","");
 
-
 function getItems()
 {
     global $db;

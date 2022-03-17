@@ -2,11 +2,10 @@
 <?php
 require_once("templates/header.php");
 require_once('models/database.php');
-$posts = getItems();
-foreach ($posts as $post) {
-};
-?>
+// $posts = getItems();
+// foreach ($posts as $post) :
 
+?>
 <div class="container">
     <form action="#" method="post">
 
@@ -34,6 +33,10 @@ foreach ($posts as $post) {
             </div>
         </div>
     </form>
+    <?php $posts = getItems();
+    foreach ($posts as $post) :
+
+?>
     <form action="controllers/post_controller.php">
         <div class="add-post show-post ">
             <div class="delete">
@@ -65,6 +68,8 @@ foreach ($posts as $post) {
             </div>
         </div>
     </form>
+    <?php endforeach;
+?>
 </div>
 <?php
 require_once("templates/footer.php")
