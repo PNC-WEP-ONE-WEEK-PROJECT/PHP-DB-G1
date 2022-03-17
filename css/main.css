@@ -41,12 +41,12 @@ ul{
     height: 120px;
     background: rgb(214, 182, 182);
     margin: auto;
+    margin-top: 27px;
     border-radius: 3px;
 }
 .cirles-profile{
     display: flex;
     padding: 6px;
-    margin-top: 40px;
 
 }
 .profile img{
@@ -152,18 +152,34 @@ ul{
 }
 
 .show-post{
-    height: 490px;
+    height: 100vh;
+    margin-top: 25px;
 }
 .content-post{
     margin: 10px;
 }
-.photo-post{
+.content-post p{
+    /* margin-bottom: 50px; */
+    margin-top: -10px;
+    margin-left: 30px;
+}
+.photo-post p{
     width: 95%;
-    height: 224px;
     margin: auto;
     border-radius: 3px;
-    background: rgb(129, 117, 117);
 }
+.photo-post .photo img{
+    width: 95%;
+    height: 60vh;
+    margin-left: 17px;
+    margin-top: 5px;
+}
+
+.count-like{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
 .cirles-profile p{
     margin-top: 25px;
     font-weight: bold;
@@ -189,4 +205,13 @@ ul{
 .like a i{
 
     color: rgb(25, 11, 235);
+}
+
+.delete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.delete_edit{
+    margin:  25px;
 }
