@@ -2,10 +2,9 @@
 <?php
 require_once("templates/header.php");
 require_once('models/database.php');
-// $posts = getItems();
-// foreach ($posts as $post) :
 
 ?>
+
 <div class="container">
     <form action="#" method="post">
 
@@ -29,34 +28,49 @@ require_once('models/database.php');
                 <input type="text" name="content" placeholder="What is your mind? ...">
             </div>
             <div class="buttons">
-                <button><a href="views/post_view.php">Add</a></button>
+                <button><a href="views/post_view.php">Add Post</a></button>
             </div>
         </div>
     </form>
-    <?php $posts = getItems();
-    foreach ($posts as $post) :
 
-?>
+
+
+    <!-- display post -->
+    <?php
+    $posts=getItems();
+    foreach($posts as $post){
+    
+     ?>
+
     <form action="controllers/post_controller.php">
         <div class="add-post show-post ">
             <div class="delete">
-
                 <div class="cirles-profile">
                     <div class="profile">
-                        <img src="images/rady.jpg" alt="">
+                        <img src="images/p.png" >
                     </div>
                     <p>Savouert</p>
                 </div>
 
                 <div class="delete_edit">
-                    <a href=""><i class="fa fa-pencil"></i></a>
-                    <a href="controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
+                    <div class="circle-icon">
+
+                        <a href="views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil"></i></a>
+                    </div>
+                    <div class="circle-icon">
+
+                        <a href="controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="content-post">
-                <p> <?= $post['content_post'] ?></p>
+                <p><?php echo $post['content_post'] ?></p>
             </div>
             <div class="photo-post">
+                 <img src="../images/<?php echo $post['image_name']; ?>" alt="" >
+            </div>
+            <div class="count-like">
+                <p> Savouert and 150K</p>
             </div>
             <div class="like-comment">
                 <div class="like">
@@ -68,8 +82,7 @@ require_once('models/database.php');
             </div>
         </div>
     </form>
-    <?php endforeach;
-?>
+    <?php }; ?>
 </div>
 <?php
 require_once("templates/footer.php")
