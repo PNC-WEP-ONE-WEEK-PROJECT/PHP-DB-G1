@@ -31,3 +31,4 @@ function deletePost($id)
     ]);
     return ($statement->rowCount()==1); 
 }
+
