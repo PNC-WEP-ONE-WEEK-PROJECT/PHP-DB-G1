@@ -1,0 +1,28 @@
+
+
+
+<?php require_once('../templates/header.php');
+require_once('../models/database.php');
+$id=null;
+isset($_GET['post_id'])?$id=$_GET['post_id']: null;
+$post= getItemById($id);
+ ?>
+
+<form action="../controllers/comment_controller.php" method="POST">
+    <input type="hidden" value="<?php echo $id;?>" name="postId">
+
+    <div class="comment-post">
+        <h1 class="header-comment">Facebook comment box</h1>
+        <h3 class="range-com">0 Comments</h3><br>
+        <hr>
+        <div class="circle-profile-name">
+            <img src="../images/rady.jpg" class="logo-profile">
+            <h3>Rady Handsome boy</h3>
+        </div>
+        <div class="comment-tage">
+            <div class="area">
+                <textarea class="textarea" name="comments" placeholder="Write a comment ....."></textarea>
+            </div>
+            <button type="submit" name="comment" id="$id" class="comment">Comments</button>
+        </div>
+</form> 

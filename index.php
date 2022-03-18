@@ -2,9 +2,7 @@
 <?php
 require_once("templates/header.php");
 require_once('models/database.php');
-// $posts = getItems();
-// foreach ($posts as $post) {
-// };
+
 ?>
 
 <div class="container">
@@ -30,7 +28,7 @@ require_once('models/database.php');
                 <input type="text" name="content" placeholder="What is your mind? ...">
             </div>
             <div class="buttons">
-                <button><a href="views/post_view.php">Add</a></button>
+                <button><a href="views/post_view.php">Add Post</a></button>
             </div>
         </div>
     </form>
@@ -47,34 +45,41 @@ require_once('models/database.php');
     <form action="controllers/post_controller.php">
         <div class="add-post show-post ">
             <div class="delete">
-
                 <div class="cirles-profile">
                     <div class="profile">
-                        <img src="images/rady.jpg" alt="">
+                        <img src="images/p.png" >
                     </div>
                     <p>Savouert</p>
                 </div>
-
                 <div class="delete_edit">
-                    <a href=""><i class="fa fa-pencil"></i></a>
-                    <a href="controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
+                    <div class="circle-icon">
+
+                        <a href="views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil"></i></a>
+                    </div>
+                    <div class="circle-icon">
+
+                        <a href="controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="content-post">
                 <p><?php echo $post['content_post'] ?></p>
             </div>
-            <div class="photo-post">
-            <p class="photo"> <?php echo  '<img src="../images/'.$post['image_name'].'" alt="">;' ?></p>
-            </div>
+            <?php  if($post['image_name']!==""){ ?>
+                <div class="photo-post">
+                    <img src="../images/<?php echo $post['image_name']; ?>" alt="" >
+                </div>
+             <?php }; ?>
+            
             <div class="count-like">
-                <p>Thib and 3 other people</p>
+                <p> Savouert and 150K</p>
             </div>
             <div class="like-comment">
                 <div class="like">
-                    <a href="#"><i class="fa fa-thumbs-o-up "></i>Like</a>
+                   <a href="#"><i class="fa fa-thumbs-o-up "></i>Like</a></p>
                 </div>
                 <div class="comment">
-                    <a href="#"><i class="fa fa-comment-o"></i>Comment</a>
+                    <a href="views/comment_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-comment-o"></i>Comment</a>
                 </div>
             </div>
         </div>
