@@ -62,3 +62,12 @@ function AddComments($comment,$pid){
         ":postID"=>$pid
     ]);
 };
+
+function getContentCm($idPost){
+    global $db;
+    $statement=$db->prepare('SELECT * FROM comments WHERE post_id=:post_id;');
+    $statement->execute([
+        ':post_id'=>$idPost
+    ]);
+    return $statement->fetchAll();
+};

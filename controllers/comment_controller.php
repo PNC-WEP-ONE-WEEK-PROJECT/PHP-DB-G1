@@ -7,5 +7,6 @@ $text_comment=$_POST['comments'];
 $post_id=$_POST['postId'];
 
 AddComments($text_comment,$post_id);
-header("localhost:/index.php");
+
+header("location:/index.php");
 ?>

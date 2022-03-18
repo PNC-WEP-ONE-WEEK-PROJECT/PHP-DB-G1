@@ -70,7 +70,18 @@ require_once('models/database.php');
                     <img src="../images/<?php echo $post['image_name']; ?>" alt="" >
                 </div>
              <?php }; ?>
+
+            <?php  
+            $postID=$post['post_id'];
+            $commentpost=  getContentCm($postID);
+                foreach ($commentpost as $comment){
+            ?>
+            <div class="display-comment">
+                <p><?php echo $comment['content'] ?></p>
+            </div>
+            <?php }; ?>
             
+
             <div class="count-like">
                 <p> Savouert and 150K</p>
             </div>
