@@ -181,13 +181,13 @@ ul{
     margin-left: 30px;
 }
 .photo-post image{
-    width: 95%;
+    width: 93%;
     margin: auto;
 }
 .photo-post img{
-    width: 95%;
+    width: 93%;
     height: 75vh;
-    margin-left: 17px;
+    margin-left: 22px;
     margin-top: 5px;
 }
 
@@ -297,4 +297,39 @@ ul{
     font-size: 13px;
     border-radius: 6px;
     margin-bottom: 40px;
+}
+
+.display-comment{
+    height: 13vh;
+    margin-left: 20px;
+    margin: 20px;
+    border-radius: 8px;
+
+    width: 35%;
+    background: rgb(202, 181, 181);
+}
+.text {
+    margin-top: 5px;
+    margin-left: 55px;
+    font-size:medium;
+    /* background: #000; */
+}
+.name{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.name img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.photo p{
+    font-size: small;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.photo i{
+    margin-left: 20vh;
+    margin-top: 15px;
 }

@@ -71,3 +71,14 @@ function getContentCm($idPost){
     ]);
     return $statement->fetchAll();
 };
+
+function deleteComment($id)
+{
+    global $db;
+    $statement=$db->prepare("DELETE FROM comments where comment_id=:comment_id");
+    $statement->execute([
+        ':comment_id'=>$id
+    ]);
+    $statement->rowCount()==1;
+    return $statement;
+}

@@ -71,16 +71,7 @@ require_once('models/database.php');
                 </div>
              <?php }; ?>
 
-            <?php  
-            $postID=$post['post_id'];
-            $commentpost=  getContentCm($postID);
-                foreach ($commentpost as $comment){
-            ?>
-            <div class="display-comment">
-                <p><?php echo $comment['content'] ?></p>
-            </div>
-            <?php }; ?>
-            
+          
 
             <div class="count-like">
                 <p> Savouert and 150K</p>
@@ -93,6 +84,26 @@ require_once('models/database.php');
                     <a href="views/comment_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-comment-o"></i>Comment</a>
                 </div>
             </div>
+            <?php  
+            $postID=$post['post_id'];
+            $commentpost=  getContentCm($postID);
+                foreach ($commentpost as $comment){
+            ?>
+            
+            <div class="display-comment">
+                <div class="cirles-profile photo">
+                    <div class="profile name">
+                        <img src="images/p.png" >
+                    </div>
+                    <p>Savouert</p>
+                    <a href="controllers/delete_comment.php?comment_id=<?php echo $comment['comment_id'];?>"><i class="fa fa-trash"></i></a>
+                </div>
+                <div class="text">
+                    <p><?php echo $comment['content'] ?> </p>
+                </div>
+            </div>
+            <?php }; ?>
+            
         </div>
     </form>
     <?php }; ?>
