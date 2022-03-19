@@ -32,3 +32,4 @@ require_once('../models/database.php');
 <?php 
 require_once('../templates/footer.php')
 ?>
+
