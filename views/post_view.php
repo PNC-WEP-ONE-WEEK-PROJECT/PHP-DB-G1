@@ -12,7 +12,6 @@
                <h3>Savouert cute girl</h3>
            </div>
            <div class="content">
-               <!-- <input type="text" name="content" placeholder="Say something about this photo ..." > -->
                <textarea name="content" placeholder="Say something about this photo" class="input"></textarea>
            </div>
        </div>
