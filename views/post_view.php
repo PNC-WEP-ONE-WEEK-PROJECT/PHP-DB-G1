@@ -1,15 +1,9 @@
-
-
 <?php
 require_once("../templates/header.php");
 require_once('../models/database.php');
-
 ?>
-
 <div class="container">
     <form action="#" method="post">
-
-        <!-- Your code here -->
         <div class="navigation">
             <h2>Facebook</h2>
             <div class="icons">
@@ -33,16 +27,11 @@ require_once('../models/database.php');
             </div>
         </div>
     </form>
-
-
-
     <!-- display post -->
     <?php
     $posts=getItems();
     foreach($posts as $post){
-    
      ?>
-
     <form action="../controllers/post_controller.php">
         <div class="add-post show-post ">
             <div class="delete">
@@ -52,13 +41,15 @@ require_once('../models/database.php');
                     </div>
                     <p>Savouert</p>
                 </div>
+                <p><?php $dateTime = $post['date_post'] ;
+                 $newDate = new DateTime($dateTime);
+                 echo $newDate->format("l jS \of F Y h:i:s A");             
+                ?></p>           
                 <div class="delete_edit">
                     <div class="circle-icon">
-
-                        <a href="../views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil"></i></a>
+                        <a href="../views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil-square-o"></i></a>
                     </div>
                     <div class="circle-icon">
-
                         <a href="../controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
                     </div>
                 </div>
@@ -70,10 +61,7 @@ require_once('../models/database.php');
                 <div class="photo-post">
                     <img src="../images/<?php echo $post['image_name']; ?>" alt="" >
                 </div>
-             <?php }; ?>
-
-          
-
+             <?php }; ?>       
             <div class="count-like">
                 <p> Savouert and 150K</p>
             </div>
@@ -90,7 +78,6 @@ require_once('../models/database.php');
             $commentpost=  getContentCm($postID);
                 foreach ($commentpost as $comment){
             ?>
-            
             <div class="display-comment">
                 <div class="cirles-profile photo">
                     <div class="profile name">
@@ -103,8 +90,7 @@ require_once('../models/database.php');
                     <p><?php echo $comment['content'] ?> </p>
                 </div>
             </div>
-            <?php }; ?>
-            
+            <?php }; ?>           
         </div>
     </form>
     <?php }; ?>
