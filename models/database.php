@@ -55,6 +55,7 @@ function getItemById($id)
     return $statement->fetch();  
 }
 
+// comment on post
 
 function AddComments($comment,$pid){
     global $db;
@@ -85,6 +86,7 @@ function deleteComment($id)
     return $statement;
 }
 
+<<<<<<< HEAD
 function createNewItem($first_name,$last_name,$email,$passwords,$date_of_birth,$gender)
 {
     global $db;
@@ -148,4 +150,23 @@ function validate_password($passwords)
         $check_password=true;
     }
     return $check_password;
+=======
+// like on post
+
+function Addlikes($postid){
+    global $db;
+    $statement=$db->prepare("INSERT INTO likes(user_id,post_id) VALUES (2,:postid)");
+    $statement->execute([
+        ":postid"=>$postid
+    ]);
+    return $statement->rowCount()==1;
+}
+
+
+function post_like(){
+    global $db;
+    $statment = $db->query("SELECT * FROM likes");
+    $like = $statment->fetchAll();
+    return $like;
+>>>>>>> ee6d02bb009a17206366e69cb97ef24af13048ff
 }

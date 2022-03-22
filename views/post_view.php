@@ -8,7 +8,7 @@ require_once('../models/database.php');
             <h2>Facebook</h2>
             <div class="icons">
                 <ul>
-                    <li><i class="fa fa-home fa-2x"></i></li>
+                    <li><a href="../views/post_view.php"><i class="fa fa-home fa-2x"></i></a></li>
                     <li><i class="fa fa-user-plus fa-2x"></i></li>
                     <li><i class="fa fa-user-circle fa-2x"></i></li>
                 </ul>
@@ -20,7 +20,9 @@ require_once('../models/database.php');
                 <div class="profile">
                     <img src="../images/rady.jpg" alt="">
                 </div>
-                <input type="text" name="content" placeholder="What is your mind? ...">
+                <!-- <textarea name="content" id="" class="content" placeholder="What is your mind? ..."></textarea> -->
+                <!-- <input type="text" name="content" placeholder=""> -->
+                <p>savouert</p>
             </div>
             <div class="buttons">
                 <button><a href="../views/create_view.php">Add Post</a></button>
@@ -47,9 +49,17 @@ require_once('../models/database.php');
                 ?></p>           
                 <div class="delete_edit">
                     <div class="circle-icon">
+<<<<<<< HEAD
                         <a href="../views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil-square-o"></i></a>
                     </div>
                     <div class="circle-icon">
+=======
+
+                        <a href="../views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil-square-o"></i></a>
+                    </div>
+                    <div class="circle-icon red">
+
+>>>>>>> ee6d02bb009a17206366e69cb97ef24af13048ff
                         <a href="../controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
                     </div>
                 </div>
@@ -61,13 +71,42 @@ require_once('../models/database.php');
                 <div class="photo-post">
                     <img src="../images/<?php echo $post['image_name']; ?>" alt="" >
                 </div>
+<<<<<<< HEAD
              <?php }; ?>       
             <div class="count-like">
                 <p> Savouert and 150K</p>
             </div>
+=======
+             <?php }; ?>
+
+             <?php  
+                $increment = 0;
+                foreach ( post_like() as $likeimg):
+                    if($likeimg['post_id'] == $post['post_id']){
+                        $increment++;
+                    }
+                endforeach; ?>
+                 <div class="count-like">
+                    <p>Your Like <?php echo $increment ?></p>
+                </div>
+
+
+                <?php 
+                    $count_comm=0;
+                    foreach(getContentCm($post['post_id']) as $comm){
+                        if($comm['post_id']==$post['post_id']){
+                            $count_comm++;
+                        }
+                    }
+                ?>
+                <div>
+                    <p><?php echo $count_comm ?> Comments </p>
+                </div>
+                
+>>>>>>> ee6d02bb009a17206366e69cb97ef24af13048ff
             <div class="like-comment">
                 <div class="like">
-                   <a href="#"><i class="fa fa-thumbs-o-up "></i>Like</a></p>
+                    <button type="submit" <?= $post["post_id"]; ?> name="like-post"><a href="../controllers/like_controller.php?post_id= <?php echo $post['post_id'] ?>" class="fa fa-thumbs-o-up">Like</a></button>
                 </div>
                 <div class="comment">
                     <a href="../views/comment_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-comment-o"></i>Comment</a>

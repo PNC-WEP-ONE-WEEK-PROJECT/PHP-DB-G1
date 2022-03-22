@@ -11,9 +11,9 @@ CREATE TABLE users(
     first_name varchar(25) not null,
     last_name varchar(25) not null,
     email varchar(255) not null,
-    passwords varchar(50) not null
-    date_of_birth date not null,
-    gender char(1) not null,
+    passwords varchar(50) not null,
+    dat_of_birth varchar(255) not null,
+    gender char(1) not null
 );
 
 CREATE TABLE posts(
@@ -33,3 +33,4 @@ CREATE TABLE comments(
     foreign key (user_id) references Users(user_id),
     foreign key (post_id) references Posts (post_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

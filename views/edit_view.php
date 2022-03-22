@@ -25,7 +25,7 @@ require_once('../models/database.php');
        </div>
        <div class="upload-img">
            <label for="post_id"><i class="fa fa-image fa-2x"></i></label>
-            <input type="file" name="image" id="post_id" style="display: none;" value="<?php echo $posts['image_name'] ?>">
+            <input type="file" name="image" id="post_id" style="display: none;" >
        </div>
     </form>
 </div>
