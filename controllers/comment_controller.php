@@ -8,5 +8,5 @@ $post_id=$_POST['postId'];
 
 AddComments($text_comment,$post_id);
 
-header("location:/index.php");
+header("location:../views/post_view.php");
 ?>

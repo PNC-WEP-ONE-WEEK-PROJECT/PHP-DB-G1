@@ -1,26 +1,135 @@
 
-<?php require_once('../templates/header.php')?>
-<div class="post_container">
-    <form action="../controllers/post_controller.php" method="post" enctype="multipart/form-data">
-       <div class=" post">
-           <a href="../index.php"><i class="fa fa-arrow-left">Create Post</i></a>
-           <button type=" submit" name="upload"  value="Upload Image">POST</button>
-       </div>
-       <div class="profile-name">
-           <div class="circle-profile-name">
-               <img src="../images/p.png" class="logo-profile">
-               <h3>Savouert cute girl</h3>
-           </div>
-           <div class="content">
-               <textarea name="content" placeholder="Say something about this photo" class="input"></textarea>
-           </div>
-       </div>
-       <div class="upload-img">
-            <label for="post_id"><i class="fa fa-image fa-2x"></i></label>
-            <input type="file" name="image" id="post_id" style="display: none;"></p>
-       </div>
-       
-       
+
+<?php
+require_once("../templates/header.php");
+require_once('../models/database.php');
+
+?>
+
+<div class="container">
+    <form action="#" method="post">
+
+        <!-- Your code here -->
+        <div class="navigation">
+            <h2>Facebook</h2>
+            <div class="icons">
+                <ul>
+                    <li><a href="../views/post_view.php"><i class="fa fa-home fa-2x"></i></a></li>
+                    <li><i class="fa fa-user-plus fa-2x"></i></li>
+                    <li><i class="fa fa-user-circle fa-2x"></i></li>
+                </ul>
+            </div>
+            <button>Sign In</button>
+        </div>
+        <div class="add-post">
+            <div class="cirles-profile">
+                <div class="profile">
+                    <img src="../images/rady.jpg" alt="">
+                </div>
+                <!-- <textarea name="content" id="" class="content" placeholder="What is your mind? ..."></textarea> -->
+                <!-- <input type="text" name="content" placeholder=""> -->
+                <p>savouert</p>
+            </div>
+            <div class="buttons">
+                <button><a href="../views/create_view.php">Add Post</a></button>
+            </div>
+        </div>
     </form>
+
+
+
+    <!-- display post -->
+    <?php
+    $posts=getItems();
+    foreach($posts as $post){
+    
+     ?>
+
+    <form action="../controllers/post_controller.php">
+        <div class="add-post show-post ">
+            <div class="delete">
+                <div class="cirles-profile">
+                    <div class="profile">
+                        <img src="../images/p.png" >
+                    </div>
+                    <p>Savouert</p>
+                </div>
+                <div class="delete_edit">
+                    <div class="circle-icon">
+
+                        <a href="../views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil-square-o"></i></a>
+                    </div>
+                    <div class="circle-icon red">
+
+                        <a href="../controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="content-post">
+                <p><?php echo $post['content_post'] ?></p>
+            </div>
+            <?php  if($post['image_name']!==""){ ?>
+                <div class="photo-post">
+                    <img src="../images/<?php echo $post['image_name']; ?>" alt="" >
+                </div>
+             <?php }; ?>
+
+             <?php  
+                $increment = 0;
+                foreach ( post_like() as $likeimg):
+                    if($likeimg['post_id'] == $post['post_id']){
+                        $increment++;
+                    }
+                endforeach; ?>
+                 <div class="count-like">
+                    <p>Your Like <?php echo $increment ?></p>
+                </div>
+
+
+                <?php 
+                    $count_comm=0;
+                    foreach(getContentCm($post['post_id']) as $comm){
+                        if($comm['post_id']==$post['post_id']){
+                            $count_comm++;
+                        }
+                    }
+                ?>
+                <div>
+                    <p><?php echo $count_comm ?> Comments </p>
+                </div>
+                
+            <div class="like-comment">
+                <div class="like">
+                    <button type="submit" <?= $post["post_id"]; ?> name="like-post"><a href="../controllers/like_controller.php?post_id= <?php echo $post['post_id'] ?>" class="fa fa-thumbs-o-up">Like</a></button>
+                </div>
+                <div class="comment">
+                    <a href="../views/comment_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-comment-o"></i>Comment</a>
+                </div>
+            </div>
+            <?php  
+            $postID=$post['post_id'];
+            $commentpost=  getContentCm($postID);
+                foreach ($commentpost as $comment){
+            ?>
+            
+            <div class="display-comment">
+                <div class="cirles-profile photo">
+                    <div class="profile name">
+                        <img src="../images/p.png" >
+                    </div>
+                    <p>Savouert</p>
+                    <a href="../controllers/delete_comment.php?comment_id=<?php echo $comment['comment_id'];?>"><i class="fa fa-trash"></i></a>
+                </div>
+                <div class="text">
+                    <p><?php echo $comment['content'] ?> </p>
+                </div>
+            </div>
+            <?php }; ?>
+            
+        </div>
+    </form>
+    <?php }; ?>
 </div>
-<?php require_once('../templates/footer.php')?>
+<?php
+require_once("../templates/footer.php")
+?>

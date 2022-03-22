@@ -53,6 +53,7 @@ function getItemById($id)
     return $statement->fetch();  
 }
 
+// comment on post
 
 function AddComments($comment,$pid){
     global $db;
@@ -71,3 +72,33 @@ function getContentCm($idPost){
     ]);
     return $statement->fetchAll();
 };
+
+function deleteComment($id)
+{
+    global $db;
+    $statement=$db->prepare("DELETE FROM comments where comment_id=:comment_id");
+    $statement->execute([
+        ':comment_id'=>$id
+    ]);
+    $statement->rowCount()==1;
+    return $statement;
+}
+
+// like on post
+
+function Addlikes($postid){
+    global $db;
+    $statement=$db->prepare("INSERT INTO likes(user_id,post_id) VALUES (2,:postid)");
+    $statement->execute([
+        ":postid"=>$postid
+    ]);
+    return $statement->rowCount()==1;
+}
+
+
+function post_like(){
+    global $db;
+    $statment = $db->query("SELECT * FROM likes");
+    $like = $statment->fetchAll();
+    return $like;
+}

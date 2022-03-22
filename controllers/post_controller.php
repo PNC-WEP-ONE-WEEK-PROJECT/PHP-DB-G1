@@ -13,7 +13,7 @@ if(isset($_POST['upload'])){
         // echo  '<img src="../images/'.$image. '" alt="">';
         $msg="Succesfull";
     }
-    header("location:/index.php");
+    header("location:../views/post_view.php");
 };
 
 

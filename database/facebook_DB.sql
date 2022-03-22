@@ -33,3 +33,4 @@ CREATE TABLE comments(
     foreign key (user_id) references Users(user_id),
     foreign key (post_id) references Posts (post_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

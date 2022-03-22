@@ -1,105 +1,43 @@
-
-<?php
-require_once("templates/header.php");
-require_once('models/database.php');
-
-?>
-
-<div class="container">
-    <form action="#" method="post">
-
-        <!-- Your code here -->
-        <div class="navigation">
-            <h2>Facebook</h2>
-            <div class="icons">
-                <ul>
-                    <li><i class="fa fa-home fa-2x"></i></li>
-                    <li><i class="fa fa-user-plus fa-2x"></i></li>
-                    <li><i class="fa fa-user-circle fa-2x"></i></li>
-                </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<section class="vh-100 ">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+          <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="card" style="border-radius: 15px;">
+                  <div class="card-body p-5">
+                    <h2 class="text-uppercase text-center mb-5"></i>Facebook</h2>
+                    <form>     
+                      <div class="form-outline mb-4">
+                        <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Your Email" />               
+                      </div>  
+                      <div class="form-outline mb-4">
+                        <input type="password" id="form3Example4cg" class="form-control form-control-lg"  placeholder="Password"/>                     
+                      </div>
+                      <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"><a href="views/post_view.php">Log in</a> </button>
+                      </div>
+                      <h4>or</h4>
+                      <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"><a href="views/createAccount_view.php">Create New Account</a> </button>
+                      </div>
+                    </form>  
+                  </div>
+                </div>
+              </div>
             </div>
-            <button>Sign In</button>
+          </div>
         </div>
-        <div class="add-post">
-            <div class="cirles-profile">
-                <div class="profile">
-                    <img src="images/rady.jpg" alt="">
-                </div>
-                <input type="text" name="content" placeholder="What is your mind? ...">
-            </div>
-            <div class="buttons">
-                <button><a href="views/post_view.php">Add Post</a></button>
-            </div>
-        </div>
-    </form>
-
-
-
-    <!-- display post -->
-    <?php
-    $posts=getItems();
-    foreach($posts as $post){
-    
-     ?>
-
-    <form action="controllers/post_controller.php">
-        <div class="add-post show-post ">
-            <div class="delete">
-                <div class="cirles-profile">
-                    <div class="profile">
-                        <img src="images/p.png" >
-                    </div>
-                    <p>Savouert</p>
-                </div>
-                <div class="delete_edit">
-                    <div class="circle-icon">
-
-                        <a href="views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil"></i></a>
-                    </div>
-                    <div class="circle-icon">
-
-                        <a href="controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="content-post">
-                <p><?php echo $post['content_post'] ?></p>
-            </div>
-            <?php  if($post['image_name']!==""){ ?>
-                <div class="photo-post">
-                    <img src="../images/<?php echo $post['image_name']; ?>" alt="" >
-                </div>
-             <?php }; ?>
-
-           
-            
-
-            <div class="count-like">
-                <p> Savouert and 150K</p>
-            </div>
-            <div class="like-comment">
-                <div class="like">
-                   <a href="#"><i class="fa fa-thumbs-o-up "></i>Like</a></p>
-                </div>
-                <div class="comment">
-                    <a href="views/comment_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-comment-o"></i>Comment</a>
-                </div>
-            </div> 
-
-            <?php  
-            $postID=$post['post_id'];
-            $commentpost=  getContentCm($postID);
-                foreach ($commentpost as $comment){
-            ?>
-            <div class="display-comment">
-                <p><?php echo $comment['content'] ?></p>
-            </div>
-            <?php }; ?>
-            
-        </div>
-    </form>
-    <?php }; ?>
-</div>
-<?php
-require_once("templates/footer.php")
-?>
+      </section>
+    </body>
+</html>

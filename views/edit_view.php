@@ -26,12 +26,10 @@ require_once('../models/database.php');
        <div class="upload-img">
            <label for="post_id"><i class="fa fa-image fa-2x"></i></label>
             <input type="file" name="image" id="post_id" style="display: none;" >
-            <img src='../images/<?php echo $post['image_name']; ?>' alt='' >
        </div>
     </form>
-    <!-- value='</?php echo $post['image_name'] ?>'> -->
 </div>
 <?php 
 require_once('../templates/footer.php')
-
 ?>
+
