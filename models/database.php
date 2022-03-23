@@ -101,7 +101,7 @@ function validate_email($email)
 function createNewItem($first_name,$last_name,$email,$passwords,$date_of_birth,$gender)
 {
     global $db;
-    $statement=$db->prepare("INSERT INTO users (first_name,last_name,email,passwords,dat_of_birth,gender) values (:first_name,:last_name,:email,:passwords,:date_of_birth,:gender)");
+    $statement=$db->prepare("INSERT INTO users (first_name,last_name,email,passwords,date_of_birth,gender) values (:first_name,:last_name,:email,:passwords,:date_of_birth,:gender)");
     $statement->execute([
         ':first_name'=> $first_name,
         ':last_name'=> $last_name,

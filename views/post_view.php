@@ -63,12 +63,12 @@ require_once('../models/database.php');
                     </div>
                 </div>
             </div>
-            <div class="date">
-                    <p><?php $dateTime = $post['date_post'] ;
+            <!-- <div class="date">
+                    <p></?php $dateTime = $post['date_post'] ;
                      $newDate = new DateTime($dateTime);
                      echo $newDate->format("l jS \of F Y h:i:s A");                  
                     ?></p>
-                </div>
+                </div> -->
             <div class="content-post">
                 <p><?php echo $post['content_post'] ?></p>
             </div>

@@ -11,7 +11,7 @@ require_once('../models/database.php');
     <form action="../controllers/edite_controller.php" method="post" enctype="multipart/form-data">
     <input type="hidden" value="<?php echo $id;?>" name="postId">
        <div class=" post">
-           <a href="../index.php"><i class="fa fa-arrow-left">Create Post</i></a>
+           <a href="post_view.php"><i class="fa fa-arrow-left">Create Post</i></a>
            <button type=" submit" name="upload"  value="Upload Image">Update</button>
        </div>
        <div class="profile-name">

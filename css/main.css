@@ -200,7 +200,7 @@ ul{
     border-radius: 3px;
 }
 .upload-img i{
-    margin-left: 25vh;
+    margin-left: 40vh;
     margin-top: 12vh;
     color: green;
 
@@ -213,6 +213,10 @@ ul{
 }
 .content-post{
     margin: 10px;
+}
+.content .input{
+    width: 95%;
+    height: 40px;
 }
 .content-post p{
     margin-top: -10px;
@@ -391,7 +395,6 @@ ul{
 .display-comment{
     height: 12vh;
     margin-left: 50px;
-    /* margin: 15px; */
     border-radius: 8px;
     background: rgb(247, 237, 237);
     width: 45%;
