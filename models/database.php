@@ -4,7 +4,7 @@ $db=new PDO("mysql:host=localhost;dbname=facebooks_db","root","");
 function getItems()
 {
     global $db;
-    $statement = $db->prepare("SELECT post_id, content_post, image_name, date_post FROM posts order by post_id desc");
+    $statement = $db->prepare("SELECT post_id, content_post, image_name FROM posts order by post_id desc");
     $posts=$statement->execute();
     $posts = $statement->fetchAll();
     return $posts;
@@ -20,8 +20,6 @@ function createItem($content, $image)
     ]);
     return $statement->rowCount()==1;
 };
-
-
 
 function deletePost($id)
 {
@@ -86,51 +84,7 @@ function deleteComment($id)
     return $statement;
 }
 
-<<<<<<< HEAD
-function createNewItem($first_name,$last_name,$email,$passwords,$date_of_birth,$gender)
-{
-    global $db;
-    $statement=$db->prepare("INSERT INTO users (first_name,last_name,email,passwords,date_of_birth,gender) values (:first_name,:last_name,:email,:passwords,:date_of_birth,:gender)");
-    $statement->execute([
-        ':first_name'=> $first_name,
-        ':last_name'=> $last_name,
-        ':email'=> $email,
-        ':passwords'=>$passwords,
-        ':date_of_birth'=> $date_of_birth,
-        ':gender'=>$gender
-    ]);
-    return $statement->rowCount()==1;
-};
-
-function login($email,$password){
-    global $db;
-    $statement=$db->prepare("SELECT email,passwords FROM users Where email=:email,passwords=:passwords");
-    $statement->execute([
-        ':email'=>$email,
-        ':passwords'=>$password
-    ]);
-    return $statement->fetch();  
-}
-
-
-
-
-function validate_firstName($firstName)
-{
-    $check_name=false;
-    if (ctype_alnum($firstName)){
-        $check_name=true;
-    }
-    return $check_name;  
-}
-function validate_lastName($lastName)
-{
-    $check_name=false;
-    if (ctype_alnum($lastName)){
-        $check_name=true;
-    }
-    return $check_name;  
-}
+//  form create acccount
 
 function validate_email($email)
 {
@@ -143,14 +97,21 @@ function validate_email($email)
     }
     return $check_email;
 }
-function validate_password($passwords)
+
+function createNewItem($first_name,$last_name,$email,$passwords,$date_of_birth,$gender)
 {
-    $check_password=false;
-    if (strlen($passwords) >= 8) {
-        $check_password=true;
-    }
-    return $check_password;
-=======
+    global $db;
+    $statement=$db->prepare("INSERT INTO users (first_name,last_name,email,passwords,dat_of_birth,gender) values (:first_name,:last_name,:email,:passwords,:date_of_birth,:gender)");
+    $statement->execute([
+        ':first_name'=> $first_name,
+        ':last_name'=> $last_name,
+        ':email'=> $email,
+        ':passwords'=>$passwords,
+        ':date_of_birth'=> $date_of_birth,
+        ':gender'=>$gender
+    ]);
+    return $statement->rowCount()==1;
+};
 // like on post
 
 function Addlikes($postid){
@@ -168,5 +129,4 @@ function post_like(){
     $statment = $db->query("SELECT * FROM likes");
     $like = $statment->fetchAll();
     return $like;
->>>>>>> ee6d02bb009a17206366e69cb97ef24af13048ff
 }

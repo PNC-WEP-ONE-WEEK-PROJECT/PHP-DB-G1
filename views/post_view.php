@@ -1,9 +1,15 @@
+
+
 <?php
 require_once("../templates/header.php");
 require_once('../models/database.php');
+
 ?>
+
 <div class="container">
     <form action="#" method="post">
+
+        <!-- Your code here -->
         <div class="navigation">
             <h2>Facebook</h2>
             <div class="icons">
@@ -20,50 +26,49 @@ require_once('../models/database.php');
                 <div class="profile">
                     <img src="../images/rady.jpg" alt="">
                 </div>
-                <!-- <textarea name="content" id="" class="content" placeholder="What is your mind? ..."></textarea> -->
-                <!-- <input type="text" name="content" placeholder=""> -->
-                <p>savouert</p>
+                <p>Teacher Rady</p>
             </div>
             <div class="buttons">
-                <button><a href="../views/create_view.php">Add Post</a></button>
+                <button class="btn"><a href="../views/create_view.php">Add Post</a></button>
             </div>
         </div>
     </form>
+
+
+
     <!-- display post -->
     <?php
     $posts=getItems();
     foreach($posts as $post){
+    
      ?>
+
     <form action="../controllers/post_controller.php">
         <div class="add-post show-post ">
             <div class="delete">
                 <div class="cirles-profile">
                     <div class="profile">
-                        <img src="../images/p.png" >
+                        <img src="../images/rady.jpg" >
                     </div>
-                    <p>Savouert</p>
+                    <p>Teacher Rady</p>
                 </div>
-                <p><?php $dateTime = $post['date_post'] ;
-                 $newDate = new DateTime($dateTime);
-                 echo $newDate->format("l jS \of F Y h:i:s A");             
-                ?></p>           
                 <div class="delete_edit">
                     <div class="circle-icon">
-<<<<<<< HEAD
-                        <a href="../views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil-square-o"></i></a>
-                    </div>
-                    <div class="circle-icon">
-=======
 
                         <a href="../views/edit_view.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-pencil-square-o"></i></a>
                     </div>
                     <div class="circle-icon red">
 
->>>>>>> ee6d02bb009a17206366e69cb97ef24af13048ff
                         <a href="../controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>"><i class="fa fa-trash"></i></a>
                     </div>
                 </div>
             </div>
+            <div class="date">
+                    <p><?php $dateTime = $post['date_post'] ;
+                     $newDate = new DateTime($dateTime);
+                     echo $newDate->format("l jS \of F Y h:i:s A");                  
+                    ?></p>
+                </div>
             <div class="content-post">
                 <p><?php echo $post['content_post'] ?></p>
             </div>
@@ -71,12 +76,6 @@ require_once('../models/database.php');
                 <div class="photo-post">
                     <img src="../images/<?php echo $post['image_name']; ?>" alt="" >
                 </div>
-<<<<<<< HEAD
-             <?php }; ?>       
-            <div class="count-like">
-                <p> Savouert and 150K</p>
-            </div>
-=======
              <?php }; ?>
 
              <?php  
@@ -86,11 +85,6 @@ require_once('../models/database.php');
                         $increment++;
                     }
                 endforeach; ?>
-                 <div class="count-like">
-                    <p>Your Like <?php echo $increment ?></p>
-                </div>
-
-
                 <?php 
                     $count_comm=0;
                     foreach(getContentCm($post['post_id']) as $comm){
@@ -99,11 +93,16 @@ require_once('../models/database.php');
                         }
                     }
                 ?>
-                <div>
-                    <p><?php echo $count_comm ?> Comments </p>
+                <div class="countLC">
+                    <div class="count-like">
+                        <p><?php echo $increment ?> Likes</p>
+                    </div>
+                    <div class="comment-box">
+                        <p><?php echo $count_comm ?> Comments </p>
+                    </div>
                 </div>
                 
->>>>>>> ee6d02bb009a17206366e69cb97ef24af13048ff
+                
             <div class="like-comment">
                 <div class="like">
                     <button type="submit" <?= $post["post_id"]; ?> name="like-post"><a href="../controllers/like_controller.php?post_id= <?php echo $post['post_id'] ?>" class="fa fa-thumbs-o-up">Like</a></button>
@@ -117,19 +116,24 @@ require_once('../models/database.php');
             $commentpost=  getContentCm($postID);
                 foreach ($commentpost as $comment){
             ?>
+            
             <div class="display-comment">
                 <div class="cirles-profile photo">
                     <div class="profile name">
                         <img src="../images/p.png" >
                     </div>
                     <p>Savouert</p>
-                    <a href="../controllers/delete_comment.php?comment_id=<?php echo $comment['comment_id'];?>"><i class="fa fa-trash"></i></a>
+                    <div class="icon-circle red">
+                        <a href="../controllers/delete_comment.php?comment_id=<?php echo $comment['comment_id'];?>"><i class="fa fa-trash"></i></a>
+                    </div>
+                    
                 </div>
                 <div class="text">
                     <p><?php echo $comment['content'] ?> </p>
                 </div>
             </div>
-            <?php }; ?>           
+            <?php }; ?>
+            
         </div>
     </form>
     <?php }; ?>

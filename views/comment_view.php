@@ -13,7 +13,6 @@ $post= getItemById($id);
 
     <div class="comment-post">
         <h1 class="header-comment">Facebook comment box</h1>
-        <h3 class="range-com">0 Comments</h3><br>
         <hr>
         <div class="circle-profile-name">
             <img src="../images/rady.jpg" class="logo-profile">

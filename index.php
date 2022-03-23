@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,55 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 </head>
-
 <body>
-<<<<<<< HEAD
-    <?php
-    // require_once("controllers/.php");
-
-    // require_once('models/database.php');
-   
-    // $_SESSION['password_error']="";
-    // $_SESSION['email_error']="";
-
-    // if(isset($_POST['emails'])){
-    //      $emailuser=$_POST['emails'];
-    //      echo $emailuser;
-    // }
-
-
- 
-    ?>
-     <section class="vh-100 "> 
-            <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-            <div class="container h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card" style="border-radius: 15px;">
-                    <div class="card-body p-5">
-                        <h2 class="text-uppercase text-center mb-5"></i>Facebook</h2>
-
-                        <form action="#" method="POST">     
-                        <div class="form-outline mb-4">
-                            <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Your Email" name="emails"/>  
-                            <small class="form-text"></small class="form-text">             
-                        </div>  
-                        <div class="form-outline mb-4">
-                            <input type="password" id="form3Example4cg" class="form-control form-control-lg"  placeholder="Password" name="passwords"/>                     
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Log in</button>
-                            <a href="views/post_view.php">Log in</a>
-                       </div>
-                        <h4>or</h4>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit"  class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"><a href="views/form.php">Create New Account</a> </button>
-                        </div>
-                        </form>  
-                    </div>
-                    </div>
-                </div>
-=======
 <section class="vh-100 ">
         <div class="mask d-flex align-items-center h-100 gradient-custom-3">
           <div class="container h-100">
@@ -66,7 +17,7 @@
                 <div class="card" style="border-radius: 15px;">
                   <div class="card-body p-5">
                     <h2 class="text-uppercase text-center mb-5"></i>Facebook</h2>
-                    <form>     
+                    <form action="views/form.php" method="POST">     
                       <div class="form-outline mb-4">
                         <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Your Email" />               
                       </div>  
@@ -74,27 +25,19 @@
                         <input type="password" id="form3Example4cg" class="form-control form-control-lg"  placeholder="Password"/>                     
                       </div>
                       <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"><a href="views/post_view.php">Log in</a> </button>
+                        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Log in</button>
                       </div>
                       <h4>or</h4>
                       <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"><a href="views/createAccount_view.php">Create New Account</a> </button>
+                        <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Create New Account</button>
                       </div>
                     </form>  
                   </div>
->>>>>>> ee6d02bb009a17206366e69cb97ef24af13048ff
                 </div>
+              </div>
             </div>
-<<<<<<< HEAD
-            </div>
-        </section>
-    </form>
-    </body> 
- </html>   
-=======
           </div>
         </div>
       </section>
     </body>
 </html>
->>>>>>> ee6d02bb009a17206366e69cb97ef24af13048ff
